@@ -100,8 +100,9 @@ def move():
                         print("✅✅✅✅✅attack WWW✅✅✅✅✅")
                         return moveAction(THROW)
     elif myCurrentState["wasHit"]:
-        return moveAction(FORWARD)    
-    return moves[random.randrange(len(moves))]
+        return onlyMoves[random.randrange(len(onlyMoves))] 
+    else: 
+        return onlyMoves[random.randrange(len(onlyMoves))]
  
 
     # return modifyPosition(myCurrentState)
