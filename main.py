@@ -33,7 +33,7 @@ LEFT="LEFT"
 RIGHT="RIGHT"
 tototalUser=[]
 
-myCurrentState = ''
+myCurrentState = ""
 
 @app.route("/", methods=['GET'])
 def index():
@@ -63,10 +63,11 @@ def move():
     print("myDir = " + checkMyDir(myCurrentState))
     print("path" + str(checkActtackPath(myCurrentState)))
 
-
-
     
-    if checkMyDir(myCurrentState) == "N":
+    if myCurrentState["wasHit"] == True:
+        print("im in first==================")
+        return onlyMoves[random.randrange(len(onlyMoves))] 
+    elif checkMyDir(myCurrentState) == "N":
         for userState in tototalUser:
             if totalState[userState]["x"] == myCurrentState["x"]:
                 for path in checkActtackPath(myCurrentState):
