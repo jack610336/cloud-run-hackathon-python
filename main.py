@@ -64,10 +64,7 @@ def move():
     print("path" + str(checkActtackPath(myCurrentState)))
 
     
-    if myCurrentState["wasHit"] == True:
-        print("im in first==================")
-        return onlyMoves[random.randrange(len(onlyMoves))] 
-    elif checkMyDir(myCurrentState) == "N":
+    if checkMyDir(myCurrentState) == "N":
         for userState in tototalUser:
             if totalState[userState]["x"] == myCurrentState["x"]:
                 for path in checkActtackPath(myCurrentState):
@@ -96,7 +93,7 @@ def move():
                         print("✅✅✅✅✅attack WWW✅✅✅✅✅")
                         return moveAction(THROW)
     elif myCurrentState["wasHit"]:
-        return onlyMoves[random.randrange(len(onlyMoves))] 
+        return moves[random.randrange(len(moves))]
     else: 
         return onlyMoves[random.randrange(len(onlyMoves))]
  
