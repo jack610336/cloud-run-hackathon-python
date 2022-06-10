@@ -25,6 +25,7 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 moves = ['F', 'T', 'L', 'R']
+onlyMoves =['F','L','R']
 myapp="https://jack-cloud-run-hackathon-python-audhxybk5q-uc.a.run.app"
 FORWARD="FORWARD"
 THROW="THROW"
@@ -98,9 +99,8 @@ def move():
                     if path == totalState[userState]["y"]:
                         print("✅✅✅✅✅attack WWW✅✅✅✅✅")
                         return moveAction(THROW)
-    elif myCurrentState["wasHit"]:
-        return moveAction(FORWARD)    
-    return moves[random.randrange(len(moves))]
+    else:
+        return moves[random.randrange(len(onlyMoves))]
  
 
     # return modifyPosition(myCurrentState)
