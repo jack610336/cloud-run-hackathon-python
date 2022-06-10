@@ -55,7 +55,6 @@ def move():
 
     print("userarr= " + str(tototalUser))
 
-
     myCurrentState = totalState["https://jack-cloud-run-hackathon-python-audhxybk5q-uc.a.run.app"]
 
     print("mycruuecnt " + str(myCurrentState))
@@ -95,8 +94,8 @@ def move():
                         return moveAction(THROW)
     elif myCurrentState["wasHit"]:
         return moves[random.randrange(len(moves))]
-    else: 
-        return onlyMoves[random.randrange(len(onlyMoves))]
+     
+    return onlyMoves[random.randrange(len(onlyMoves))]
  
 
     # return modifyPosition(myCurrentState)
