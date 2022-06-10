@@ -16,6 +16,7 @@
 import os
 import logging
 import random
+from tabnanny import check
 from flask import Flask, request
 import json
 
@@ -29,6 +30,9 @@ FORWARD="FORWARD"
 THROW="THROW"
 LEFT="LEFT"
 RIGHT="RIGHT"
+tototalUser=[]
+
+myCurrentState = ''
 
 @app.route("/", methods=['GET'])
 def index():
@@ -43,12 +47,99 @@ def move():
     objectString=json.dumps(request.json)
     object = json.loads(objectString)
 
+    
+    
+    
     totalState=object["arena"]["state"]
-    myPos = totalState[myapp]
 
+    for user in totalState:
+        if '.run.app' in user :
+            print(user)
+            tototalUser.append(user)
+
+    print("userarr= " + str(tototalUser))
+
+
+    myCurrentState = totalState[myapp]
+
+    print("mycruuecnt " + str(myCurrentState))
+    print("user === " + str(totalState[tototalUser[1]]))
+    print("myDir = " + checkMyDir(myCurrentState))
+
+    print("path" + str(checkActtackPath(myCurrentState)))
+
+    for i in range(len(tototalUser)):
+        print("i=" + str(i))
+        print("myCurrentState = " + str(myCurrentState["x"]))
+        print("totalState[tototalUser[1]= " + str(totalState[tototalUser[1]]["x"]))
+        if totalState[tototalUser[1]]["x"] == myCurrentState["x"]:
+            print("x is the same. user = " + str(i))
+        elif totalState[tototalUser[1]]["y"] == myCurrentState["y"]:
+            print("y is the smae. user = " + str(i) )
+        else: 
+            print("NOOOOOOOO")
+
+
+
+    if checkMyDir(myCurrentState) == "N":
+        for userState in tototalUser:
+            if totalState[userState]["x"] == myCurrentState["x"]:
+                for path in checkActtackPath(myCurrentState):
+                    if path == totalState[userState]["y"]:
+                        print("YESSSSSS")
+                        return moveAction(THROW)
+    elif checkMyDir(myCurrentState) == "E":
+        for userState in tototalUser:
+            if totalState[userState]["y"] == myCurrentState["y"]:
+                for path in checkActtackPath(myCurrentState):
+                    if path == totalState[userState]["x"]:
+                        print("YESSSSSS")
+                        return moveAction(THROW)
+    elif checkMyDir(myCurrentState) == "S": 
+        for userState in tototalUser:
+            if totalState[userState]["x"] == myCurrentState["x"]:
+                for path in checkActtackPath(myCurrentState):
+                    if path == totalState[userState]["y"]:
+                        print("YESSSSSS")
+                        return moveAction(THROW)
+    elif checkMyDir(myCurrentState) == "W":
+        for userState in tototalUser:
+            if totalState[userState]["y"] == myCurrentState["y"]:
+                for path in checkActtackPath(myCurrentState):
+                    if path == totalState[userState]["y"]:
+                        print("YESSSSSS")
+                        return moveAction(THROW)
+
+    elif myCurrentState["wasHit"]:
+        return moveAction(FORWARD)    
+    return moves[random.randrange(len(moves))]
+ 
+
+    # return modifyPosition(myCurrentState)
+
+
+def checkEnemy(enemyState):
+    x=enemyState["x"]
+    y=enemyState["y"]
     
 
-    return modifyPosition(myPos)
+def checkMyDir(myState):
+    direction=myState["direction"]
+    return direction
+
+def checkActtackPath(myState):
+    x=myState["x"]
+    y=myState["y"]
+    direction=myState["direction"]
+    if direction == "N":
+        return [y-1,y-2,y-3]
+    elif direction == "E":
+        return [x+1,x+2,x+3]
+    elif direction == "S":
+        return [y+1,y+2,y+3]
+    elif direction == "W":
+        return [x-1,x-2,x-3]
+
 
 
 def modifyPosition(myState):
@@ -60,10 +151,10 @@ def modifyPosition(myState):
     myInfo="My Detail Info: \nX= " + str(x) + "  \nY= " + str(y) + " \ndirection = " + direction + " \nwasHit = " + str(wasHit) + " \nscroe = " + str(score) 
     print("✅✅✅✅✅ \n" + myInfo + "\n✅✅✅✅✅")
 
-    if wasHit:
-        return moveAction(RIGHT)    
-    else:
-        return moveAction(THROW)
+
+
+
+    
     
 
 
