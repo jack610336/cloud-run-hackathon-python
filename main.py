@@ -99,8 +99,9 @@ def move():
                     if path == totalState[userState]["y"]:
                         print("✅✅✅✅✅attack WWW✅✅✅✅✅")
                         return moveAction(THROW)
-    else:
-        return moves[random.randrange(len(moves))]
+    elif myCurrentState["wasHit"]:
+        return moveAction(FORWARD)    
+    return moves[random.randrange(len(moves))]
  
 
     # return modifyPosition(myCurrentState)
