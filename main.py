@@ -62,38 +62,38 @@ def move():
     print("myDir = " + checkMyDir(myCurrentState))
     print("path" + str(checkActtackPath(myCurrentState)))
 
-    if object["arena"]["state"]["https://jack-cloud-run-hackathon-python-audhxybk5q-uc.a.run.app"]["wasHit"]:
-        return moves[random.randrange(len(moves))]
-    if checkMyDir(myCurrentState) == "N":
-        for userState in tototalUser:
-            if totalState[userState]["x"] == myCurrentState["x"]:
-                for path in checkActtackPath(myCurrentState):
-                    if path == totalState[userState]["y"]:
-                        print("✅✅✅✅✅attack NNN✅✅✅✅✅")
-                        return moveAction(THROW)
-    elif checkMyDir(myCurrentState) == "E":
-        for userState in tototalUser:
-            if totalState[userState]["y"] == myCurrentState["y"]:
-                for path in checkActtackPath(myCurrentState):
-                    if path == totalState[userState]["x"]:
-                        print("✅✅✅✅✅attack EEE✅✅✅✅✅")
-                        return moveAction(THROW)
-    elif checkMyDir(myCurrentState) == "S": 
-        for userState in tototalUser:
-            if totalState[userState]["x"] == myCurrentState["x"]:
-                for path in checkActtackPath(myCurrentState):
-                    if path == totalState[userState]["y"]:
-                        print("✅✅✅✅✅attack SSS✅✅✅✅✅")
-                        return moveAction(THROW)
-    elif checkMyDir(myCurrentState) == "W":
-        for userState in tototalUser:
-            if totalState[userState]["y"] == myCurrentState["y"]:
-                for path in checkActtackPath(myCurrentState):
-                    if path == totalState[userState]["y"]:
-                        print("✅✅✅✅✅attack WWW✅✅✅✅✅")
-                        return moveAction(THROW)
-    elif myCurrentState["wasHit"]:
-        return moves[random.randrange(len(moves))]
+    # if object["arena"]["state"]["https://jack-cloud-run-hackathon-python-audhxybk5q-uc.a.run.app"]["wasHit"]:
+    #     return moves[random.randrange(len(moves))]
+    # if checkMyDir(myCurrentState) == "N":
+    #     for userState in tototalUser:
+    #         if totalState[userState]["x"] == myCurrentState["x"]:
+    #             for path in checkActtackPath(myCurrentState):
+    #                 if path == totalState[userState]["y"]:
+    #                     print("✅✅✅✅✅attack NNN✅✅✅✅✅")
+    #                     return moveAction(THROW)
+    # elif checkMyDir(myCurrentState) == "E":
+    #     for userState in tototalUser:
+    #         if totalState[userState]["y"] == myCurrentState["y"]:
+    #             for path in checkActtackPath(myCurrentState):
+    #                 if path == totalState[userState]["x"]:
+    #                     print("✅✅✅✅✅attack EEE✅✅✅✅✅")
+    #                     return moveAction(THROW)
+    # elif checkMyDir(myCurrentState) == "S": 
+    #     for userState in tototalUser:
+    #         if totalState[userState]["x"] == myCurrentState["x"]:
+    #             for path in checkActtackPath(myCurrentState):
+    #                 if path == totalState[userState]["y"]:
+    #                     print("✅✅✅✅✅attack SSS✅✅✅✅✅")
+    #                     return moveAction(THROW)
+    # elif checkMyDir(myCurrentState) == "W":
+    #     for userState in tototalUser:
+    #         if totalState[userState]["y"] == myCurrentState["y"]:
+    #             for path in checkActtackPath(myCurrentState):
+    #                 if path == totalState[userState]["y"]:
+    #                     print("✅✅✅✅✅attack WWW✅✅✅✅✅")
+    #                     return moveAction(THROW)
+    # elif myCurrentState["wasHit"]:
+    #     return moves[random.randrange(len(moves))]
      
     return onlyMoves[random.randrange(len(onlyMoves))]
  
