@@ -63,7 +63,8 @@ def move():
     print("myDir = " + checkMyDir(myCurrentState))
     print("path" + str(checkActtackPath(myCurrentState)))
 
-    
+    if object["arena"]["state"]["https://jack-cloud-run-hackathon-python-audhxybk5q-uc.a.run.app"]["wasHit"]:
+        return moves[random.randrange(len(moves))]
     if checkMyDir(myCurrentState) == "N":
         for userState in tototalUser:
             if totalState[userState]["x"] == myCurrentState["x"]:
