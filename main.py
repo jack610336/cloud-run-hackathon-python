@@ -17,6 +17,7 @@ import os
 import logging
 import random
 from flask import Flask, request
+import json
 
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 logger = logging.getLogger(__name__)
@@ -32,6 +33,10 @@ def index():
 def move():
     request.get_data()
     logger.info(request.json)
+    print("================")
+    j=json.dumps(request.json)
+    print("123123123" + j)
+    print("現在動作" + moves[3])
     return moves[3]
 
 if __name__ == "__main__":
