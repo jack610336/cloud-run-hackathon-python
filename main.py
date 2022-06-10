@@ -100,7 +100,7 @@ def move():
                         print("✅✅✅✅✅attack WWW✅✅✅✅✅")
                         return moveAction(THROW)
     else:
-        return moves[random.randrange(len(onlyMoves))]
+        return moves[random.randrange(len(moves))]
  
 
     # return modifyPosition(myCurrentState)
