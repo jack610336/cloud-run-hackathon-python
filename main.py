@@ -65,51 +65,39 @@ def move():
     print("mycruuecnt " + str(myCurrentState))
     print("user === " + str(totalState[tototalUser[1]]))
     print("myDir = " + checkMyDir(myCurrentState))
-
     print("path" + str(checkActtackPath(myCurrentState)))
 
-    for i in range(len(tototalUser)):
-        print("i=" + str(i))
-        print("myCurrentState = " + str(myCurrentState["x"]))
-        print("totalState[tototalUser[1]= " + str(totalState[tototalUser[1]]["x"]))
-        if totalState[tototalUser[1]]["x"] == myCurrentState["x"]:
-            print("x is the same. user = " + str(i))
-        elif totalState[tototalUser[1]]["y"] == myCurrentState["y"]:
-            print("y is the smae. user = " + str(i) )
-        else: 
-            print("NOOOOOOOO")
 
 
-
+    
     if checkMyDir(myCurrentState) == "N":
         for userState in tototalUser:
             if totalState[userState]["x"] == myCurrentState["x"]:
                 for path in checkActtackPath(myCurrentState):
                     if path == totalState[userState]["y"]:
-                        print("YESSSSSS")
+                        print("✅✅✅✅✅attack NNN✅✅✅✅✅")
                         return moveAction(THROW)
     elif checkMyDir(myCurrentState) == "E":
         for userState in tototalUser:
             if totalState[userState]["y"] == myCurrentState["y"]:
                 for path in checkActtackPath(myCurrentState):
                     if path == totalState[userState]["x"]:
-                        print("YESSSSSS")
+                        print("✅✅✅✅✅attack EEE✅✅✅✅✅")
                         return moveAction(THROW)
     elif checkMyDir(myCurrentState) == "S": 
         for userState in tototalUser:
             if totalState[userState]["x"] == myCurrentState["x"]:
                 for path in checkActtackPath(myCurrentState):
                     if path == totalState[userState]["y"]:
-                        print("YESSSSSS")
+                        print("✅✅✅✅✅attack SSS✅✅✅✅✅")
                         return moveAction(THROW)
     elif checkMyDir(myCurrentState) == "W":
         for userState in tototalUser:
             if totalState[userState]["y"] == myCurrentState["y"]:
                 for path in checkActtackPath(myCurrentState):
                     if path == totalState[userState]["y"]:
-                        print("YESSSSSS")
+                        print("✅✅✅✅✅attack WWW✅✅✅✅✅")
                         return moveAction(THROW)
-
     elif myCurrentState["wasHit"]:
         return moveAction(FORWARD)    
     return moves[random.randrange(len(moves))]
