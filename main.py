@@ -56,7 +56,7 @@ def move():
     print("userarr= " + str(tototalUser))
 
 
-    myCurrentState = totalState[myapp]
+    myCurrentState = totalState["https://jack-cloud-run-hackathon-python-audhxybk5q-uc.a.run.app"]
 
     print("mycruuecnt " + str(myCurrentState))
     print("user === " + str(totalState[tototalUser[1]]))
